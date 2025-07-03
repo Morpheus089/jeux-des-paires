@@ -1,0 +1,73 @@
+body {
+    background-color: #0f001f;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: #bb86fc;
+    text-shadow: 0 0 10px #bb86fc;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    gap: 15px;
+    justify-content: center;
+    margin: auto;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid #bb86fc;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #bb86fc;
+}
+
+.card-front {
+    background-color: #1a0033;
+}
+
+.card-back {
+    background-color: #37005a;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-back img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    border-radius: 5px;
+}
